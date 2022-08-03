@@ -1,0 +1,216 @@
+CSS Notes
+
+ref. https://developer.mozilla.org/en-US/docs/Web/CSS
+icons. https://heroicons.com/ , https://fontawesome.com/
+
+Cascading: reading the code top to bottom
+if two properties are added to same tag, style that comes later will apply
+
+write css in html file
+    add style tage in <head>
+    <style></style> - write css code in style
+
+link css file in html file 
+    <link href="style.css" rel="stylesheet" />
+
+Adding styles
+
+* {
+    This applies to everything
+}
+
+adding styles to tags
+html {
+    background-color: orange;
+}
+h1 {
+    property: specify;
+    color: blue;
+    font-weight: 300;
+    font-size:50px;
+    font-style: italic;
+    text-align: center;
+}
+
+adding style to id
+#first {
+}
+
+adding style to class
+.class {
+}
+
+grouping selectors
+h1,h2,h3,h4 {
+}
+
+p span {
+} // changes a span that is inside p
+
+**combinator**
+div > span {
+} //applies to only the direct children
+
+p + span {
+} //applies to a span that is directly next to p - direct brother
+
+p ~ span {
+} // brother relationship
+
+input:required{
+} //also works with optional
+
+input[type="password"]{
+}   // placeholder="username"
+    // placeholder~="name" contains word name
+
+
+**block (box)**
+- do not want anything next to it.
+ex. div, header, main, section, footer, p, etc.
+
+**inlines (not so many of them)**
+- in the same line, not a box
+ex. span, img, link, address, etc.
+- inline do not have height, weight, margin, padding, border
+- onlt left and right margin
+- all padding works
+
+span {
+    display: block; //default is inline for span
+}
+
+**spacing order: margin - border - padding - content**
+margin is a space from border of the box/block to the outside
+properties: margin, margin-left, 
+ex. margin: 20px 10px;top-bottom left-right
+            20px 5px 12px 9px; top right bottom left (clockwise)
+
+padding is a space from border of the box to the contents
+
+border is the separation line between margin and padding
+ex. border: 2px solid black
+ex. border-radius: 50%; // circle border
+
+**id** - unique identifier
+<div id="first">
+    <div id="second">
+    </div>
+</div>
+
+**class** - do not have to be unique and can be stacked to a single tag
+ex. <span class="btn tomato">
+
+display: inline-block (not used very much)
+allows a block to have width, height, and margin
+
+**flexbox**
+rules
+- do not talk to the child, only talk to the parent
+- main axis (default: horizontal) - justify-content
+- cross axis (default: vertical) - align-items
+body{
+    display: flex;
+    justify-content: flex-end; // justify right --- calculates the spacing automatically
+    flex-direction: column //  main axis -> vertical, cross axis -> horizontal //default: row // column-reverse
+    align-items: center;
+    flex-wrap: nowrap; // changes content size based on the window size // wrap, wrap-reverse
+}
+
+position: fixed; // content stays in fixed while scrolling
+position: relative; // moves from the default position
+    top: -10px;
+    left: -10px;
+position: absolute; //moves to the end of the parent tag
+    bottom: 0px;
+    // change parent tag to relative if want to set absolute boundary to the parent boundary
+
+**pseudoselector**
+div: last-child{
+    background-color: teal;
+}
+    div: first-child
+    span: nth-child(2)
+    span: nth-child(even)
+    span: nth-child(2n+1)
+
+**states**
+btn:active{
+} - pressing the button
+btn:hover{
+} - when mouse is on top
+btn:focus{
+} - selected by the keyboard (such as using tab key)
+a:visited{
+} - only applies to links visited
+
+form:focus-within{
+} - activates when children is focused within the element
+
+form:hover input{
+} - when the form is hovered, input changes style
+
+input::placeholder{
+} - change styles of the placeholder
+
+p::selection{
+} - changes style when selected (or highlighted)
+
+**Transition**
+add the property on the root element, not on the state
+refer to https://matthewlein.com/tools/ceaser for effect explanation
+transition: all 10s ease-in-out, color 5s ease-in-out;
+transition: background-color 10s ease-in-out, color 5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+**Transformation**
+does not modify the initial box position after transformation
+refer to https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+tranform: rotateY(35degrees) // 3D transformation - rotate
+tranform: scaleX(12) // 3D transformation - change size
+
+
+**Animation**
+add animation without change in state
+- as soon as page loads, animation plays
+@keyframes sexyCoinFlip{
+    from{
+        transform:rotateX(0);
+    }
+    to {
+        transform:rotateX(360deg);
+    }
+} 
+img {
+    animation:sexyCoinFlip 5s ease-in-out infinite;
+} - plays animation for 5 seconds unlimited number of times as soon as page loads 
+
+Another way to animate
+@keyframes sexyCoinFlip{
+    0%{
+        transform:rotateY(0);
+    }
+    50%{
+        transform:rotateY(180deg) translateY(100px)
+    }
+    100%{
+        transofmr: rotateY(0);
+    }
+}
+
+**Media Query**
+ref. https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+@media screen and (min-width: 400px) and (max-width: 700px) and (orientation: landscape) { // screen size is between 400 and 700 and landscape
+    div{
+        background-color: tomato;
+    }
+}
+
+span {
+    font-size: 36px;
+}
+
+@media screen and (orientation: landscape){
+    span{
+        display: none;
+    }
+}

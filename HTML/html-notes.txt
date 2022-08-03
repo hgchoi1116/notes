@@ -1,0 +1,46 @@
+HTML Note
+ref. https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+shortcut key
+	ctrl + d : select both tags to edit
+Header
+	<link rel="shortcut icon" href="url"/> - small image on the tab 
+	<meta property="og.image" content="url"/> - preview image on messaging apps
+	<meta content="This shows on google content" name="description"/>
+	<meta content="These, are, keywords, for, search" name ="keywords"/>
+Tags
+	<h1></h1> - header (h1 - h6)
+	
+
+	<ul> unordered list (bullets)
+		<li>	list items </li>
+	</ul>
+
+	<ol> ordered list (1.2.3.4.)
+		<li> list item </li>
+	</ol>
+
+	<a> anchor - link
+		href="http://google.com - hyperlink reference
+		target=	"_self" - open on same tab
+				"_blank" - opnn on a new tab
+	</a>
+	
+	<image src="url"/>
+		"image.jpg" - same folder
+		"folder/image.jpg" - inside a folder
+
+	<form>
+		<input id="profile" placeholder="displayas when blank" type="text"/> - textbox
+			type: text,url,email, date, color, password, file (accept), submit, etc.
+		<label for="profile">Profile Photo</label> - labeling the input
+		**for (label) and id (input) must be unique, and they are a pair
+	</form>
+
+	content sectioning
+		<div></div> - division
+		<header></header> - div, used for header division
+		<main></main> - div,used for main part
+		<footer></footer> - div, used for footer
+		<p></p> - paragraph
+		<span></span> - short text

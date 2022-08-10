@@ -133,7 +133,8 @@ randomQuiz('love you',printYes,printNo);
 const simplePrint = function () {
     console.log('simplePrint!');
 }
-const simplePrint2 = () => console.log('simeplePrint!');
+simplePrint();
+const simplePrint2 = () => console.log('simpleePrint!');
 const add = (a,b) => a+b;
 simplePrint2();
 console.log(add(3,5));
